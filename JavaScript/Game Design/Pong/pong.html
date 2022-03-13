@@ -63,12 +63,16 @@
             
         var score = 0;
             var score_txt = new sjs.Text("Score: 0", 21, "red");
-            
+
          sjs.onHit("ball","paddle", function(ball,paddle){
             score = score + 1;
             score_txt.setText("Score: "+score);
             soundEffect.play();
             sjs.bounceOff(ball,paddle);
+            });
+
+            sjs.onHit("ball",["top_screen","bottom_screen"], function(){
+                window.location = "gameover.html";
             });
         }//end start
     </script>
