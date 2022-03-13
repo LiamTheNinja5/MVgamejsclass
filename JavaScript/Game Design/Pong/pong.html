@@ -45,10 +45,14 @@
                 paddle2.pushRight();
             
             });
-            
+
+            // sounds
+            var soundEffect = new Audio('Music/pop.mp3');
+
          sjs.onHit("ball","paddle", function(ball,paddle){
             score = score + 1;
             score_txt.setText("Score: "+score);
+            soundEffect.play();
             sjs.bounceOff(ball,paddle);
             });
         }//end start
