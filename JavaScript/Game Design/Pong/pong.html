@@ -37,6 +37,7 @@
             sjs.keyDown(LEFT_KEY, function(){
                 paddle1.pushLeft();
                 paddle2.pushLeft();
+                
             
             });
 
@@ -46,9 +47,20 @@
             
             });
 
-            // sounds
-            var soundEffect = new Audio('Music/pop.mp3');
+            sjs.keyDown(65, function(){
+                paddle1.pushLeft();
+                paddle2.pushLeft();
+                
+            
+            });
 
+            sjs.keyDown(68, function(){
+                paddle1.pushRight();
+                paddle2.pushRight();
+            
+            });
+        // sounds
+        var soundEffect = new Audio('Music/pop.mp3')
          sjs.onHit("ball","paddle", function(ball,paddle){
             score = score + 1;
             score_txt.setText("Score: "+score);
