@@ -16,7 +16,13 @@ var startBtn = new sjs.Button("Start", function(){
 window.location = "pong.html";
 });
 
-startBtn.center();
+startBtn.center().offset(0, 0);
+
+var backMenu = new sjs.Button("Back", function(){
+window.history.back()
+});
+
+backMenu.center().offset(0, 30);
 
 var info_text = new sjs.Text("Created By LiamTheNinja5",20,"black");
 
