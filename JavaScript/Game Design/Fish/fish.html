@@ -13,6 +13,49 @@ background.setSize(sjs.getWidth(), sjs.getHeight());
 var player = new sjs.Image("Images/fish_left.png");
 player.type = "player";
 player.setSize(100,50);
+player.friction = .1;
+player.accel = .5;
+
+//movement
+sjs.keyDown(RIGHT_KEY, function(){
+player.setImage("Images/fish_right.png");
+player.pushRight();
+});
+
+sjs.keyDown(LEFT_KEY, function(){
+player.setImage("Images/fish_left.png");
+player.pushLeft();
+});
+
+sjs.keyDown(UP_KEY, function(){
+player.pushUp();
+});
+
+sjs.keyDown(DOWN_KEY, function(){
+player.pushDown();
+});
+
+//powerup
+setInterval(function(){
+var x = Math.floor(Math.random() * 783);
+var y = Math.floor(Math.random() * 470);
+var powerUp = new sjs.Image("Images/crumbs.png");
+powerUp.type = "powerUp";
+powerUp.setGravity();
+powerUp.setSize(17,30);
+powerUp.noBounds = true;
+powerUp.moveTo(x, y);
+}, 5000);
+
+sjs.onHit("player","powerUp",function(x,y){
+x.grow(60,30);
+setTimeout(function(){
+x.grow(-60,-30);
+}, 4000);
+y.destroy();
+});
+
+
 
 
 } //end start
