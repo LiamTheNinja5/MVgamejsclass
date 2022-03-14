@@ -6,12 +6,20 @@
 <script>
 function start(){
 sjs.open("target", 800, 500);
+var background = new sjs.Image("Images/background.png");
+background.setSize(sjs.getWidth(), sjs.getHeight());
+
+//Player properties
+var player = new sjs.Image("Images/fish_left.png");
+player.type = "player";
+player.setSize(100,50);
+
 
 } //end start
 </script>
 </head>
 <body onload="start()">
-<h1> Fish Game! </h1>
+<h1></h1>
 
 <div id="target" style="margin:auto;background:grey;"></div>
 </body>
