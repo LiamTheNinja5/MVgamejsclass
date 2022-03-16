@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> LiamTheNinja5's Games </title>
+<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+<script>
+function start(){
+sjs.open();
+var menu_text = new sjs.Text("MENU",28,"blue");
+menu_text.centerH();
+
+var game_text = new sjs.Text("Press a button to play a game",28,"#ff0");
+game_text.centerH().offset(0, 30);
+//start pong
+var startPong = new sjs.Button("Pong", function(){
+window.location = "JavaScript/Game Design/Pong/index.html";
+});
+
+startPong.center().offset(0, -90);
+//start fish
+startFish = new sjs.Button("Fish", function(){
+window.location = "JavaScript/Game Design/Fish/index.html";
+});
+
+startFish.center().offset(0, -120);
+
+var info_text = new sjs.Text("Created By LiamTheNinja5",20,"black");
+
+info_text.bottom().centerH();
+} //end start
+</script>
+</head>
+<body onload="start()">
+<h1></h1>
+
+<div id="target" style="margin:auto;background:grey;"></div>
+</body>
+</html>
