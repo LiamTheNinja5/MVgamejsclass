@@ -55,9 +55,22 @@ x.grow(-60,-30);
 y.destroy();
 });
 
+//Enemies
+setInterval(function(){
+var speed = Math.round(1 + Math.random()*10);
+if(Math.random() > 0.5){
+var enemy = new sjs.Image("Images/fish2_right.png");
+enemy.type = "enemy";
+enemy.setSize(100,50);
+enemy.noBounds = true;
+enemy.friction = 0;
+enemy.pushRight(speed);
+enemy.scaleSize(.5 + Math.random() * 1.2);
+enemy.moveTo(-enemy.getWidth(), Math.random()*(enemy.getClamp().y));
+}
+},1000);
 
-
-
+sjs.left_screen.offset(-500)
 } //end start
 </script>
 </head>
