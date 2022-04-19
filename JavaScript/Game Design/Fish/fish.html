@@ -6,6 +6,28 @@
 <script>
 function start(){
 sjs.open("target", 800, 500);
+//background music
+var playM = new Audio('Music/mad_robots.mp3');
+var toggle = true;
+var musicOn = false;
+sjs.keyDown(32, function(){
+if(toggle == true){
+if(musicOn == false){
+playM.play();
+musicOn = true;
+} else {
+playM.pause();
+musicOn = false;
+}
+toggle = false;
+setTimeout(function(){
+toggle = true;
+},1000);
+} //end if toggle statement
+}); //end keyDown function
+
+
+
 var background = new sjs.Image("Images/background.png");
 background.setSize(sjs.getWidth(), sjs.getHeight());
 
@@ -67,11 +89,45 @@ enemy.friction = 0;
 enemy.pushRight(speed);
 enemy.scaleSize(.5 + Math.random() * 1.2);
 enemy.moveTo(-enemy.getWidth(), Math.random()*(enemy.getClamp().y));
-}
+} else {
+var enemy = new sjs.Image("Images/fish2_left.png");
+enemy.type = "enemy"; 
+enemy.setSize(100,50);
+enemy.noBounds = true;
+enemy.friction = 0;
+enemy.pushLeft(speed);
+enemy.scaleSize(.5 + Math.random() * 1.2);
+enemy.moveTo(sjs.getWidth(), Math.random()*(enemy.getClamp().y));
+    }
 },1000);
 
 sjs.left_screen.offset(-500)
-} //end start
+sjs.right_screen.offset(500)
+
+
+sjs.onHit("enemy",["right_screen","left_screen"],function(x,y){
+x.destroy();
+});
+
+//Score
+var score = 0;
+var score_txt = new sjs.Text("Score: 0", 21, "black");
+
+sjs.onHit("player","enemy", function(x,y){
+if(x.getWidth() > y.getWidth() && x.getHeight() > y.getHeight()) {
+    score = score + 1;
+score_txt.setText("Score: "+score);
+localStorage.setItem("score", score);
+x.grow(10,5);
+
+} else {
+x.destroy();
+window.location = "gameover.html";
+}
+y.destroy();
+});
+}
+//end start
 </script>
 </head>
 <body onload="start()">
