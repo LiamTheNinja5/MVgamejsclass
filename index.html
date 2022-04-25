@@ -4,8 +4,10 @@
 <title> LiamTheNinja5's Games </title>
 <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
 <script>
+var w = window.innerWidth;
+var h = window.innerHeight;
 function start(){
-sjs.open();
+sjs.open("target",w,h);
 var menu_text = new sjs.Text("MENU",28,"blue");
 menu_text.centerH();
 
@@ -21,6 +23,12 @@ startPong.center().offset(0, -90);
 startFish = new sjs.Button("Fish", function(){
 window.location = "JavaScript/Game Design/Fish/index.html";
 });
+//start platform
+startPlatform = new sjs.Button("Platform", function(){
+window.location = "JavaScript/Game Design/Platform/index.html";
+});
+
+startPlatform.center().offset(0, -60);
 
 startFish.center().offset(0, -120);
 

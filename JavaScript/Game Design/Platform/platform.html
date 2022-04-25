@@ -1,0 +1,20 @@
+<html>
+<head>
+<title> Platform Game </title>
+<script src="https://simplycodingcourses.com/files/simply.js"></script>
+<script>
+var w = window.innerWidth;
+var h = window.innerHeight;
+function start(){
+sjs.open("target",800,500);
+var background = new sjs.Image("Images/background.png");
+background.setSize(2500, sjs.getHight());
+} //end start
+</script>
+</head>
+<body onload="start()">
+<h1></h1>
+
+<div id="target" style="margin:auto;background:grey;"></div>
+</body>
+</html>
