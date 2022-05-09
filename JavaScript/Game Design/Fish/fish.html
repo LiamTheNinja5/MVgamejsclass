@@ -4,8 +4,10 @@
 <title> Fish Game! </title>
 <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
 <script>
+var w = window.innerWidth;
+var h = window.innerHeight;
 function start(){
-sjs.open("target", 800, 500);
+sjs.open("target", w, h);
 //background music
 var playM = new Audio('Music/mad_robots.mp3');
 var toggle = true;
