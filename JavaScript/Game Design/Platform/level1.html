@@ -11,17 +11,8 @@ sjs.open("target",800,500);
 var background = new sjs.Image("Images/background.png");
 background.setSize(2500, sjs.getHeight());
 
-var testBtn = new sjs.Button("Test", function(){
-    localStorage.setItem('level', sjs.saveImageArray(level));
-    window.open('test.html', '_blank');
-});
+sjs.loadImageArray('[{"width":150,"height":33,"x":132,"y":398,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":33,"x":392,"y":296,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":33,"x":666,"y":339,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":33,"x":990.5584159374225,"y":271,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":33,"x":1329.558415836667,"y":271,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":33,"x":1642.6168316733338,"y":209,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":150,"height":33,"x":2016.2250825033336,"y":254,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"}]');
 
-var showBtn = new sjs.Button("Show", function(){
-var output = document.querySelector("#output");
-output.innerHTML = sjs.saveImageArray(level);
-});
-
-showBtn.offset(75, 0);
 
 //Player properties
 var player = new sjs.Image("Images/r_idle.png");
@@ -120,29 +111,13 @@ sjs.stoppedBy(x,y);
 });
 } //end start
 
-//Platform Function
-
-function platform(){
-var platform = new sjs.Image("Images/platform.png");
-level.push(platform);
-platform.type = "platform";
-platform.onMouseDown(function(){
-platform.draggable();
-platform.follow(sjs.mouse);
-});
-}
 </script>
 </head>
 <body onload="start()">
 <h1>
-<center>
-<input type="image" src="Images/platform.png" onclick="platform()">
-</center>
+
 </h1>
 
 <div id="target" style="margin:auto;background:grey;"></div>
-<br/>
-<div id="output" style="margin:0 50 0 50;"></div>
-<br/><br/>
 </body>
 </html>
