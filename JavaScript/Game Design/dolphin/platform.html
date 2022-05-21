@@ -48,12 +48,26 @@ showBtn.offset(75, 0);
 //Player properties
 var player = new sjs.Image("Images/r_idle.png");
 player.type = "player";
-player.setSize(85,95);
-player.setGravity(100);
+player.setSize(152,76);
+player.setGravity(10);
 player.bottom();
 player.friction = .3;
+player.accel = .6;
 player.noBounds = true;
 sjs.scrollable(player,background);
+
+
+//Ball properties
+var ball = new sjs.Image("Images/spike.png");
+ball.type = "ball";
+ball.setSize(50,50);
+ball.center();
+ball.friction = 0.
+ball.accel = 0.2;
+ball.bounce();
+ball.pushRight(3);
+ball.pushUp(4);
+
 
 //Player movement controls
 var r_images = ["Images/r_walk-0.png", "Images/r_walk-1.png", "Images/r_walk-2.png", "Images/r_walk-3.png", "Images/r_walk-4.png", "Images/r_walk-5.png", "Images/r_walk-6.png", "Images/r_walk-7.png"];
@@ -94,7 +108,7 @@ var canJump = true;
 sjs.keyDown(UP_KEY, function(){
     if(canJump == true){
 canJump = false;
-player.pushUp(55);
+player.pushUp(25);
 if(r_facing == true){
     player.setImage("Images/r_jump.png");
 r_track = 8;
@@ -170,6 +184,10 @@ sjs.onHit("player",["right_screen","left_screen","top_screen"],function(x,y){
 sjs.stoppedBy(x,y);
 });
 
+sjs.onHit("ball","player", function(ball,player){
+            sjs.bounceOff(ball,player);
+            });
+
 var trash = new sjs.Text("Trash",15,"orange");
 trash.type = "trash";
 trash.moveTo(720,10);
@@ -203,7 +221,6 @@ powerUp.draggable();
 powerUp.follow(sjs.mouse);
 });
 }
-
 function score(){
     var score = new sjs.Image("Images/score.gif");
 level.push(score);
@@ -215,8 +232,6 @@ score.draggable();
 score.follow(sjs.mouse);
 });
 }
-
-
 function flag(){
     var flag = new sjs.Image("Images/flag_bad.png");
 level.push(flag);
@@ -248,7 +263,6 @@ enemy.onMouseUp(function(){
 enemy.accel=.5;
 });
 } //end enemy function
-
 function jumpPad(){
 var jump_pad = new sjs.Image("Images/jump_pad.png");
 level.push(jump_pad);
@@ -262,6 +276,7 @@ jump_pad.follow(sjs.mouse);
 } //end jump_pad function
 
 
+
 </script>
 </head>
 <body onload="start()">
@@ -273,6 +288,7 @@ jump_pad.follow(sjs.mouse);
 <input type="image" src="Images/flag_bad.png" onclick="flag()">
 <input type="image" src="Images/r_enemy.gif" onclick="enemy()">
 <input type="image" src="Images/jump_pad.png" onclick="jumpPad()">
+<input type="image" src="Images/spike.png" onclick="jumpPad()">
 </center>
 </h1>
 
