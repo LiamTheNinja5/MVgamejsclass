@@ -107,6 +107,22 @@ l_track = 0;
 }
 });
 
+sjs.onHit("enemy","bottom_screen", function(x,y){
+sjs.stoppedBy(x,y);
+});
+
+sjs.onHit("enemy",["left_screen","right_screen"], function(x,y){
+sjs.bounceOff(x,y);
+});
+
+sjs.onHit("enemy","platform", function(x,y){
+if(x.isAboveOf(y) == true){
+sjs.stoppedBy(x,y);
+} else {
+sjs.bounceOff(x,y);
+}
+});
+
 sjs.onHit("player","bottom_screen",function(x,y){
 sjs.stoppedBy(x,y);
 if(canJump == false){
@@ -126,17 +142,83 @@ function platform(){
 var platform = new sjs.Image("Images/platform.png");
 level.push(platform);
 platform.type = "platform";
+platform.setHeight(30);
+platform.center().offset(-sjs.gx,10);
 platform.onMouseDown(function(){
 platform.draggable();
 platform.follow(sjs.mouse);
 });
 }
+function powerUp(){
+    var powerUp = new sjs.Image("Images/power_up.png");
+level.push(powerUp);
+powerUp.type = "powerUp";
+powerUp.setHeight(30);
+powerUp.center().offset(-sjs.gx,10);
+powerUp.onMouseDown(function(){
+powerUp.draggable();
+powerUp.follow(sjs.mouse);
+});
+}
+
+function score(){
+    var score = new sjs.Image("Images/score.gif");
+level.push(score);
+score.type = "score";
+score.setHeight(30);
+score.center().offset(-sjs.gx,10);
+score.onMouseDown(function(){
+score.draggable();
+score.follow(sjs.mouse);
+});
+}
+
+
+function flag(){
+    var flag = new sjs.Image("Images/flag_bad.png");
+level.push(flag);
+flag.type = "flag";
+flag.setHeight(80);
+flag.center().offset(-sjs.gx,10);
+flag.onMouseDown(function(){
+flag.draggable();
+flag.follow(sjs.mouse);
+});
+
+function enemy(){
+var enemy = new sjs.Image("Images/r_enemy.gif");
+level.push(enemy);
+enemy.type = "enemy";
+enemy.center().offset(-sjs.gx,10);
+enemy.friction = 0;
+enemy.noBounds = true;
+enemy.setHFlipImages("Images/l_enemy.gif","Images/r_enemy.gif");
+enemy.onMouseDown(function(){
+enemy.follow(sjs.mouse);
+enemy.removeGravity();
+enemy.stop();
+});
+enemy.onMouseUp(function(){
+enemy.unfollow(sjs.mouse);
+enemy.setGravity();
+enemy.pushHFacing();
+enemy.accel=.5;
+});
+} //end enemy function
+}
+
+
 </script>
 </head>
 <body onload="start()">
 <h1>
 <center>
 <input type="image" src="Images/platform.png" onclick="platform()">
+<input type="image" src="Images/power_up.png" onclick="powerUp()">
+<input type="image" src="Images/score.gif" onclick="score()">
+<input type="image" src="Images/flag_bad.png" onclick="flag()">
+<input type="image" src="Images/r_enemy.gif" onclick="enemy()">
+
 </center>
 </h1>
 

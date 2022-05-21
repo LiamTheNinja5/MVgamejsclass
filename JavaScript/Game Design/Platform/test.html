@@ -86,6 +86,27 @@ l_track = 0;
 
 }); //end EventListener function
 
+sjs.keyDown(DOWN_KEY, function(){
+    if(canShoot == true){
+        canShoot = false;
+var laser = new sjs.Image("Images/laser.png");
+laser.type = "laser";
+laser.setSize(100,50);
+laser.friction = 0;
+laser.noBounds = true;
+if(r_facing == true){
+laser.moveTo(player.getX()+44,player.getY()+7);
+laser.pushRight(25.5);
+} else {
+laser.moveTo(player.getX()+-60,player.getY()+7);
+laser.pushLeft(25.5);
+}
+setTimeout(function(){
+canShoot = true;
+},1500);
+} //end canShoot if statement
+}); //end keyDown function DOWN_KEY
+
 //onHit functions
 
 sjs.onHit("player","platform", function(x,y){
@@ -97,6 +118,40 @@ l_track = 0;
 }
 });
 
+var canShoot = false;
+sjs.onHit("player","powerUp", function(x,y){
+    canShoot = true;
+y.destroy();
+});
+
+var score = 0;
+var score_txt = new sjs.Text("Score: 0", 21, "green");
+score_txt.right().offset(-20, 0);
+score_txt.fixed = true;
+sjs.onHit("player","score", function(x,y){
+score = score + 1;
+score_txt.setText("Score :"+ score);
+localStorage.setItem("score", score);
+y.destroy();
+});
+
+var flagOn = true;
+sjs.onHit("player","flag", function(x,y){
+    x.stop();
+if(flagOn == true){
+flagOn = false;
+setTimeout(function(){
+    y.setImage("Images/flag_none.png");
+},800 );
+setTimeout(function(){
+    y.setImage("Images/flag_win.png");
+},1600 );
+setTimeout(function(){
+    window.location = "test.html";
+},2400 );
+} //end if statement
+});
+
 sjs.onHit("player","bottom_screen",function(x,y){
 sjs.stoppedBy(x,y);
 if(canJump == false){
@@ -105,6 +160,24 @@ r_track = 0;
 l_track = 0;
 }
 });
+
+sjs.onHit("enemy","bottom_screen", function(x,y){
+sjs.stoppedBy(x,y);
+});
+
+sjs.onHit("enemy",["left_screen","right_screen"], function(x,y){
+sjs.bounceOff(x,y);
+});
+
+sjs.onHit("enemy","platform", function(x,y){
+if(x.isAboveOf(y) == true){
+sjs.stoppedBy(x,y);
+} else {
+sjs.bounceOff(x,y);
+}
+});
+
+
 sjs.onHit("player",["right_screen","left_screen","top_screen"],function(x,y){
 sjs.stoppedBy(x,y);
 });
