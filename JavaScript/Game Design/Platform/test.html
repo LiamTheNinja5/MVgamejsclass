@@ -147,7 +147,7 @@ setTimeout(function(){
     y.setImage("Images/flag_win.png");
 },1600 );
 setTimeout(function(){
-    window.location = "test.html";
+    window.location = "win.html";
 },2400 );
 } //end if statement
 });
@@ -177,6 +177,31 @@ sjs.bounceOff(x,y);
 }
 });
 
+sjs.onHit("player","jump_pad", function(x,y){
+if(x.isAboveOf(y) == true){
+player.pushUp(50);
+} else {
+sjs.stoppedBy(x,y);
+}
+});
+
+sjs.onHit("player","enemy", function(x,y){
+x.destroy();
+window.location = "gameover.html";
+});
+
+sjs.onHit("laser","enemy", function(x,y){
+x.destroy();
+y.destroy();
+});
+
+sjs.onHit("laser",["platform","jump_pad", "powerUp","score","flag"], function(x,y){
+sjs.bounceOff(x,y);
+});
+
+sjs.onHit("laser",["right_screen","left_screen"], function(x,y){
+x.destroy();
+});
 
 sjs.onHit("player",["right_screen","left_screen","top_screen"],function(x,y){
 sjs.stoppedBy(x,y);

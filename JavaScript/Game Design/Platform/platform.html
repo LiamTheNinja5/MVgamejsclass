@@ -8,6 +8,28 @@
 var level = [];
 function start(){
 sjs.open("target",800,500);
+
+//Background Music
+var playM = new Audio('Music/ova.mp3');
+var toggle = true;
+var musicOn = false;
+sjs.keyDown(SPACE_KEY, function(){
+if(toggle == true){
+if(musicOn == false){
+playM.play();
+musicOn = true;
+} else {
+playM.pause();
+musicOn = false;
+}
+toggle = false;
+setTimeout(function(){
+toggle = true;
+},1000);
+} //end if toggle statement
+}); //end keyDown function
+
+
 var background = new sjs.Image("Images/background.png");
 background.setSize(2500, sjs.getHeight());
 
@@ -123,6 +145,19 @@ sjs.bounceOff(x,y);
 }
 });
 
+sjs.onHit("player","jump_pad", function(x,y){
+if(x.isAboveOf(y) == true){
+player.pushUp(50);
+} else {
+sjs.stoppedBy(x,y);
+}
+});
+
+sjs.onHit("trash",["platform","jump_pad", "powerUp","score","enemy","flag"], function(x,y){
+y.destroy();
+sjs.removeFromArray(level,y);
+});
+
 sjs.onHit("player","bottom_screen",function(x,y){
 sjs.stoppedBy(x,y);
 if(canJump == false){
@@ -134,6 +169,14 @@ l_track = 0;
 sjs.onHit("player",["right_screen","left_screen","top_screen"],function(x,y){
 sjs.stoppedBy(x,y);
 });
+
+var trash = new sjs.Text("Trash",15,"orange");
+trash.type = "trash";
+trash.moveTo(720,10);
+trash.fixed = true;
+trash.setHeight(60);
+trash.node.style.background = "green";
+trash.node.style.borderTop = "4px solid yellow";
 } //end start
 
 //Platform Function
@@ -184,7 +227,7 @@ flag.onMouseDown(function(){
 flag.draggable();
 flag.follow(sjs.mouse);
 });
-
+}
 function enemy(){
 var enemy = new sjs.Image("Images/r_enemy.gif");
 level.push(enemy);
@@ -194,18 +237,29 @@ enemy.friction = 0;
 enemy.noBounds = true;
 enemy.setHFlipImages("Images/l_enemy.gif","Images/r_enemy.gif");
 enemy.onMouseDown(function(){
-enemy.follow(sjs.mouse);
-enemy.removeGravity();
-enemy.stop();
+  enemy.follow(sjs.mouse);
+   enemy.removeGravity();
+   enemy.stop();
 });
 enemy.onMouseUp(function(){
-enemy.unfollow(sjs.mouse);
-enemy.setGravity();
-enemy.pushHFacing();
+ enemy.unfollow(sjs.mouse);
+ enemy.setGravity();
+ enemy.pushHFacing();
 enemy.accel=.5;
 });
 } //end enemy function
-}
+
+function jumpPad(){
+var jump_pad = new sjs.Image("Images/jump_pad.png");
+level.push(jump_pad);
+jump_pad.type = "jump_pad";
+jump_pad.center().offset(-sjs.gx,10);
+jump_pad.setHeight(15);
+jump_pad.onMouseDown(function(){
+jump_pad.draggable();
+jump_pad.follow(sjs.mouse);
+});
+} //end jump_pad function
 
 
 </script>
@@ -218,7 +272,7 @@ enemy.accel=.5;
 <input type="image" src="Images/score.gif" onclick="score()">
 <input type="image" src="Images/flag_bad.png" onclick="flag()">
 <input type="image" src="Images/r_enemy.gif" onclick="enemy()">
-
+<input type="image" src="Images/jump_pad.png" onclick="jumpPad()">
 </center>
 </h1>
 
