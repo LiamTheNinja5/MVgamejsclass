@@ -112,7 +112,10 @@ sjs.onHit("player","powerUp", function(x,y){
     canShoot = true;
 y.destroy();
 });
-
+var score = 0;
+var score_txt = new sjs.Text("Score: 0", 21, "green");
+score_txt.right().offset(-20, 0);
+score_txt.fixed = true;
 sjs.onHit("player","score", function(x,y){
 score = score + 1;
 score_txt.setText("Score :"+ score);
@@ -201,15 +204,6 @@ l_track = 0;
 sjs.onHit("player",["right_screen","left_screen","top_screen"],function(x,y){
 sjs.stoppedBy(x,y);
 });
-
-
-var trash = new sjs.Text("Trash",15,"orange");
-trash.type = "trash";
-trash.moveTo(720,10);
-trash.fixed = true;
-trash.setHeight(60);
-trash.node.style.background = "green";
-trash.node.style.borderTop = "4px solid yellow";
 } //end start
 
 </script>
