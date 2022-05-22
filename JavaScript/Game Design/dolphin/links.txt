@@ -1,0 +1,8 @@
+dolphin platform.html (or the level builder):
+http://127.0.0.1:5500/JavaScript/Game%20Design/dolphin/platform.html
+
+The doc for sjs:
+http://127.0.0.1:5500/JavaScript/docs/global.html
+
+Main menu:
+http://127.0.0.1:5500/index.html

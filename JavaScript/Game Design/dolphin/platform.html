@@ -59,13 +59,15 @@ sjs.scrollable(player,background);
 
 //Ball properties
 var ball = new sjs.Image("Images/spike.png");
+var can_collide =true
 ball.type = "ball";
 ball.setSize(50,50);
 ball.center();
-ball.friction = 0.
-ball.accel = 0.1;
+ball.friction = 0.1
+ball.accel = 0.3;
 ball.setGravity(.5);
 ball.bounce();
+
 // ball.pushRight(3);
 // ball.pushUp(4);
 
@@ -167,7 +169,7 @@ sjs.stoppedBy(x,y);
 }
 });
 
-sjs.onHit("trash",["platform","jump_pad", "powerUp","score","enemy","flag"], function(x,y){
+sjs.onHit("trash",["platform","jump_pad", "powerUp","score","enemy","flag","grass_block"], function(x,y){
 y.destroy();
 sjs.removeFromArray(level,y);
 });
@@ -175,45 +177,64 @@ sjs.removeFromArray(level,y);
 sjs.onHit("player","bottom_screen",function(x,y){
 sjs.stoppedBy(x,y);
 if(canJump == false){
-    setTimeout(function(){
-    canJump = true;
-}, 2000);
-// canJump = true;
+canJump = true;
 r_track = 0;
 l_track = 0;
 }
 });
+
 sjs.onHit("player",["right_screen","left_screen","top_screen"],function(x,y){
 sjs.stoppedBy(x,y);
 });
 
-sjs.onHit("ball","player", function(x,y){
+sjs.onHit("ball","platform",function(x,y){
+sjs.stoppedBy(x,y);
+});
 
-      //if (x.isaboveOf(y) == true) {
-         //ball.pushUp(25); 
-         //sjs.bounceOff(y,x);       
-     //}
-     //if (x.isLeftOf(y) == true) {
-         //ball.pushLeft(25);
-         //sjs.bounceOff(y,x);
-     //}
-      //if (x.isRightOf(y) == true) {
-         //sjs.bounceOff(y,x);
-         //ball.pushRight(25);
-     // }
-     sjs.stoppedBy(y,x);
-     sjs.bounceOff(x,y);
-     if (x.isaboveOf(y) == true) {
-        if (r_track ==1) {
-            ball.pushRight(3);
-        }
+sjs.onHit("ball","ball_hold",function(x,y){
+sjs.stoppedBy(x,y);
+});
 
-        if (l_track ==1) {
-            ball.pushLeft(25);
-        }
+sjs.onHit("player","ball", function(x,y){
+
+    if(x.isLeftOf(y) == true && x.isTopOf(y) == false && r_track != 0 && can_collide == true){
+        
+    ball.pushRight(5);
+    ball.pushUp(5);
+    sjs.stoppedBy(x,y);
+    can_collide = false;
     
-      }
-    });
+    }
+
+    if(x.isRightOf(y) == true && x.isTopOf(y) == false && l_track != 0 && can_collide == true){
+        
+        ball.pushLeft(5);
+        ball.pushUp(5);
+        sjs.stoppedBy(x,y);
+        can_collide = false;
+    }
+
+    if(x.isBottomOf(y) == true && can_collide == true){
+        
+        
+        ball.pushUp(5);
+        sjs.stoppedBy(x,y);
+        can_collide = false;
+    }
+
+    setTimeout( can_collide = true, 500)
+
+});
+
+sjs.onHit("ball","bottom_screen",function(x,y){
+sjs.stoppedBy(x,y);
+
+});
+
+
+sjs.onHit("ball","grass_block",function(x,y){
+sjs.bounceOff(x,y);
+});
 
 
 var trash = new sjs.Text("Trash",15,"orange");
@@ -302,7 +323,30 @@ jump_pad.draggable();
 jump_pad.follow(sjs.mouse);
 });
 } //end jump_pad function
-
+function ballhold(){
+var ball_hold = new sjs.Image("Images/BallHold.png");
+level.push(ball_hold);
+ball_hold.type = "ball_hold";
+ball_hold.center().offset(-sjs.gx,10);
+ball_hold.setHeight(15);
+ball_hold.setSize(80,80);
+ball_hold.onMouseDown(function(){
+ball_hold.draggable();
+ball_hold.follow(sjs.mouse);
+});
+} //end ball hold function
+function grass(){
+var grass_block = new sjs.Image("Images/grass.png");
+level.push(grass_block);
+grass_block.type = "grass_block";
+grass_block.center().offset(-sjs.gx,10);
+grass_block.setHeight(15);
+grass_block.setSize(80,80);
+grass_block.onMouseDown(function(){
+grass_block.draggable();
+grass_block.follow(sjs.mouse);
+});
+} //end ball hold function
 
 
 </script>
@@ -310,13 +354,14 @@ jump_pad.follow(sjs.mouse);
 <body onload="start()">
 <h1>
 <center>
-<input type="image" src="Images/platform.png" onclick="platform()">
-<input type="image" src="Images/power_up.png" onclick="powerUp()">
-<input type="image" src="Images/score.gif" onclick="score()">
-<input type="image" src="Images/flag_bad.png" onclick="flag()">
-<input type="image" src="Images/r_enemy.gif" onclick="enemy()">
-<input type="image" src="Images/jump_pad.png" onclick="jumpPad()">
-<input type="image" src="Images/spike.png" onclick="jumpPad()">
+<input type="image" src="Images/platform.png" onclick="platform()"> 
+<input type="image" src="Images/power_up.png" onclick="powerUp()"> 
+<input type="image" src="Images/score.gif" onclick="score()"> 
+<input type="image" src="Images/flag_bad.png" onclick="flag()"> 
+<input type="image" src="Images/r_enemy.gif" onclick="enemy()"> 
+<input type="image" src="Images/jump_pad.png" onclick="jumpPad()"> 
+<input type="image" src="Images/BallHold.png" onclick="ballhold()"> 
+<input type="image" src="Images/grass.png" onclick="grass()">
 </center>
 </h1>
 
