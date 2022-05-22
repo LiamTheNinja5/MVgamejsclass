@@ -63,10 +63,14 @@ ball.type = "ball";
 ball.setSize(50,50);
 ball.center();
 ball.friction = 0.
-ball.accel = 0.2;
+ball.accel = 0.1;
+ball.setGravity(.5);
 ball.bounce();
-ball.pushRight(3);
-ball.pushUp(4);
+// ball.pushRight(3);
+// ball.pushUp(4);
+
+
+
 
 
 //Player movement controls
@@ -136,11 +140,7 @@ l_track = 0;
 
 sjs.onHit("player","platform", function(x,y){
     sjs.stoppedBy(x,y);
-if(canJump == false && x.y < y.y-85){
-canJump = true;
-r_track = 0;
-l_track = 0;
-}
+
 });
 
 sjs.onHit("enemy","bottom_screen", function(x,y){
@@ -175,7 +175,10 @@ sjs.removeFromArray(level,y);
 sjs.onHit("player","bottom_screen",function(x,y){
 sjs.stoppedBy(x,y);
 if(canJump == false){
-canJump = true;
+    setTimeout(function(){
+    canJump = true;
+}, 2000);
+// canJump = true;
 r_track = 0;
 l_track = 0;
 }
@@ -184,9 +187,34 @@ sjs.onHit("player",["right_screen","left_screen","top_screen"],function(x,y){
 sjs.stoppedBy(x,y);
 });
 
-sjs.onHit("ball","player", function(ball,player){
-            sjs.bounceOff(ball,player);
-            });
+sjs.onHit("ball","player", function(x,y){
+
+      //if (x.isaboveOf(y) == true) {
+         //ball.pushUp(25); 
+         //sjs.bounceOff(y,x);       
+     //}
+     //if (x.isLeftOf(y) == true) {
+         //ball.pushLeft(25);
+         //sjs.bounceOff(y,x);
+     //}
+      //if (x.isRightOf(y) == true) {
+         //sjs.bounceOff(y,x);
+         //ball.pushRight(25);
+     // }
+     sjs.stoppedBy(y,x);
+     sjs.bounceOff(x,y);
+     if (x.isaboveOf(y) == true) {
+        if (r_track ==1) {
+            ball.pushRight(3);
+        }
+
+        if (l_track ==1) {
+            ball.pushLeft(25);
+        }
+    
+      }
+    });
+
 
 var trash = new sjs.Text("Trash",15,"orange");
 trash.type = "trash";
