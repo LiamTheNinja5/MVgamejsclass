@@ -8,17 +8,18 @@ var w = window.innerWidth;
 var h = window.innerHeight;
 function start(){
 sjs.open("target",w,h);
+
 var menu_text = new sjs.Text("MENU",28,"blue");
 menu_text.centerH();
 
-var game_text = new sjs.Text("Press a button to play a game",28,"#ff0");
+var game_text = new sjs.Text("Press a button to play a game",28,"blue");
 game_text.centerH().offset(0, 30);
 //start pong
 var startPong = new sjs.Button("Pong", function(){
 window.location = "JavaScript/Game Design/Pong/index.html";
 });
 
-startPong.center().offset(0, -90);
+startPong.center().offset(250, -90);
 //start fish
 startFish = new sjs.Button("Fish", function(){
 window.location = "JavaScript/Game Design/Fish/index.html";
@@ -26,9 +27,13 @@ window.location = "JavaScript/Game Design/Fish/index.html";
 //start platform
 startPlatform = new sjs.Button("Platform", function(){
 window.location = "JavaScript/Game Design/Platform/index.html";
-
 });
-startPlatform.center().offset(0, -60);
+startPlatform.center().offset(260, -60);
+//start dolphin
+startPlatform = new sjs.Button("Dolphin", function(){
+window.location = "JavaScript/Game Design/dolphin/index.html";
+});
+startPlatform.center().offset(260, -30);
 //reddit link
 redditlink = new sjs.Button("reddit", function(){
 window.location = "https://www.reddit.com/user/AMinecraftNinja5";
@@ -46,7 +51,7 @@ window.location = "https://github.com/LiamTheNinja5/MVjsclass";
 });
 ytlink.bottom()
 
-startFish.center().offset(0, -120);
+startFish.center().offset(250, -120);
 
 var info_text = new sjs.Text("Created By LiamTheNinja5",20,"black");
 
@@ -57,6 +62,6 @@ info_text.bottom().centerH();
 <body onload="start()">
 <h1></h1>
 
-<div id="target" style="margin:auto;background:grey;"></div>
+<div id="target" style="background-image: url('JavaScript/background.png');"></div>
 </body>
 </html>

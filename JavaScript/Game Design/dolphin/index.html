@@ -6,13 +6,13 @@
 <script>
 function start(){
 sjs.open();
-var menu_text = new sjs.Text("Evil Robots", 28, "blue");
+var menu_text = new sjs.Text("dolphin", 28, "blue");
 menu_text.centerH();
 
-var designBtn = new sjs.Button("Design Level", function(){
-window.location = "platform.html";
-designBtn.center().offset(0, 50);
-});
+// var designBtn = new sjs.Button("Design Level", function(){
+// window.location = "platform.html";
+// designBtn.center().offset(0, 50);
+// });
 
 
 var level1Btn = new sjs.Button("Level 1", function(){
@@ -33,7 +33,7 @@ backbtn.bottom().offset(0,0)
 </script>
 </head>
 <body onload="start()">
-<h1> Platform Game </h1>
+<h1></h1>
 
 <div id="target" style="margin:auto;background:grey;"></div>
 </body>

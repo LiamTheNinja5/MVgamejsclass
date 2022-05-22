@@ -48,7 +48,7 @@ showBtn.offset(75, 0);
 //Player properties
 var player = new sjs.Image("Images/r_idle.png");
 player.type = "player";
-player.setSize(152,76);
+player.setSize(117,117);
 player.setGravity(10);
 player.bottom();
 player.friction = .3;
@@ -96,6 +96,9 @@ r_track = 0;
 if(r_track >= 8){
 //player.setImage("Images/r_jump-0.png");
 player.setImage(r_jumps[r_track-8]);
+if(r_track == 21){
+r_track = 0;
+}
 }
 }); //end Right key
 
@@ -110,6 +113,9 @@ l_track = 0;
 if(l_track >= 8){
 //player.setImage("Images/l_jump-0.png");
 player.setImage(l_jumps[l_track-8]);
+if(l_track == 21){
+l_track = 0;
+}
 }
 }); //end Left key
 
@@ -118,12 +124,12 @@ var canJump = true;
 sjs.keyDown(UP_KEY, function(){
     if(canJump == true){
 canJump = false;
-player.pushUp(25);
+player.pushUp(15);
 if(r_facing == true){
-    player.setImage("Images/r_jump-0.png");
+    player.setImage("Images/r_jump-03.png");
 r_track = 8;
 } else {
-    player.setImage("Images/l_jump-0.png");
+    player.setImage("Images/l_jump-03.png");
 l_track = 8;
 }
 } //end if statement
@@ -139,6 +145,12 @@ r_track = 0;
 player.setImage("Images/l_idle.png");
 l_track = 0;
 } //end if statement
+
+
+if (sjs.getY(ball)<50){
+    ball.removeGravity();
+    ball.stop();
+}
 
 }); //end EventListener function
 
@@ -182,8 +194,13 @@ sjs.onHit("player","bottom_screen",function(x,y){
 sjs.stoppedBy(x,y);
 if(canJump == false){
 canJump = true;
+if(r_facing == true){
+    player.setImage("Images/r_idle.png");
 r_track = 0;
+} else {
+    player.setImage("Images/l_idle.png");
 l_track = 0;
+}
 }
 });
 
@@ -242,6 +259,9 @@ ball.pushRight(5);
 ball.pushUp(5);
 
 });
+
+
+
 
 
 var trash = new sjs.Text("Trash",15,"orange");
