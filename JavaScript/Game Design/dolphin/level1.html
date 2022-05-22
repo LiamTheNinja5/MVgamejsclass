@@ -11,17 +11,29 @@ sjs.open("target",800,500);
 var background = new sjs.Image("Images/background.png");
 background.setSize(2500, sjs.getHeight());
 
-sjs.loadImageArray('[{"width":136,"height":30,"x":144,"y":384,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":390,"y":287,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":669.6400065371658,"y":249,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":898.6985486467297,"y":293,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":66,"height":15,"x":1137.5972886153152,"y":319.5,"sx":0,"sy":0,"topSpeed":10,"src":"Images/jump_pad.png","alt":"add text","type":"jump_pad","friction":0.05,"classType":"Image"},{"width":66,"height":15,"x":1320.2835965262627,"y":312.5,"sx":0,"sy":0,"topSpeed":10,"src":"Images/jump_pad.png","alt":"add text","type":"jump_pad","friction":0.05,"classType":"Image"},{"width":21,"height":30,"x":1344.343085664848,"y":245,"sx":0,"sy":0,"topSpeed":10,"src":"Images/power_up.png","alt":"add text","type":"powerUp","friction":0.05,"classType":"Image"},{"width":21,"height":30,"x":1156.343085664848,"y":242,"sx":0,"sy":0,"topSpeed":10,"src":"Images/power_up.png","alt":"add text","type":"powerUp","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1496.8430856648483,"y":255,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":81,"height":93,"x":1523.3812319570075,"y":152,"sx":0,"sy":0,"topSpeed":10,"src":"Images/l_enemy.gif","alt":"add text","type":"enemy","facingLeft":true,"left_img":"Images/l_enemy.gif","right_img":"Images/r_enemy.gif","friction":0,"classType":"Image","noBounds":true},{"width":136,"height":30,"x":1770.692588276544,"y":275,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":2023.26962230868,"y":245,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":2262.3282185352,"y":314,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":31,"height":80,"x":2469,"y":417,"sx":0,"sy":0,"topSpeed":10,"src":"Images/flag_bad.png","alt":"add text","type":"flag","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1802,"y":470,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1799.452234901238,"y":455,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1795.452234901238,"y":442,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1797.452234901238,"y":425,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1790.952234901238,"y":406,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1788.952234901238,"y":390,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1790.192588276544,"y":378,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1786.192588276544,"y":367,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1782.192588276544,"y":357,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1784.192588276544,"y":344,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1780.192588276544,"y":334,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1776.192588276544,"y":318,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1778.192588276544,"y":308,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1772.192588276544,"y":290,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1769.1726044465443,"y":258,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":81,"height":93,"x":945.5,"y":407,"sx":1.5,"sy":0,"ay":1,"topSpeed":10,"src":"Images/r_enemy.gif","alt":"add text","type":"enemy","facingLeft":false,"left_img":"Images/l_enemy.gif","right_img":"Images/r_enemy.gif","friction":0,"classType":"Image","noBounds":true},{"width":81,"height":93,"x":942.952234901238,"y":407,"sx":-5,"sy":1,"ay":1,"topSpeed":10,"src":"Images/l_enemy.gif","alt":"add text","type":"enemy","facingLeft":true,"left_img":"Images/l_enemy.gif","right_img":"Images/r_enemy.gif","friction":0,"classType":"Image","noBounds":true},{"width":25,"height":30,"x":195.5,"y":359,"sx":0,"sy":0,"topSpeed":10,"src":"Images/score.gif","alt":"add text","type":"score","friction":0.05,"classType":"Image"},{"width":25,"height":30,"x":455.63627557056384,"y":245,"sx":0,"sy":0,"topSpeed":10,"src":"Images/score.gif","alt":"add text","type":"score","friction":0.05,"classType":"Image"},{"width":25,"height":30,"x":722.6947797982587,"y":221,"sx":0,"sy":0,"topSpeed":10,"src":"Images/score.gif","alt":"add text","type":"score","friction":0.05,"classType":"Image"},{"width":25,"height":30,"x":954.8593022749538,"y":245,"sx":0,"sy":0,"topSpeed":10,"src":"Images/score.gif","alt":"add text","type":"score","friction":0.05,"classType":"Image"},{"width":25,"height":30,"x":1828.160533239215,"y":224,"sx":0,"sy":0,"topSpeed":10,"src":"Images/score.gif","alt":"add text","type":"score","friction":0.05,"classType":"Image"},{"width":25,"height":30,"x":2083.219075348779,"y":216,"sx":0,"sy":0,"topSpeed":10,"src":"Images/score.gif","alt":"add text","type":"score","friction":0.05,"classType":"Image"},{"width":25,"height":30,"x":2317.5,"y":289,"sx":0,"sy":0,"topSpeed":10,"src":"Images/score.gif","alt":"add text","type":"score","friction":0.05,"classType":"Image"}]')
+sjs.loadImageArray('[{"width":80,"height":15,"x":367,"y":367,"sx":0,"sy":0,"topSpeed":10,"src":"Images/BallHold.png","alt":"add text","type":"ball_hold","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":714.9346987703243,"y":360,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":845.9346987703243,"y":360,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":963.9346987703243,"y":360,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":772.9346987703243,"y":373,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":909.9530193168805,"y":373,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":849.9530193168805,"y":383,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":80,"height":15,"x":713.4530193168805,"y":356.5,"sx":0,"sy":0,"topSpeed":10,"src":"Images/grass.png","alt":"add text","type":"grass_block","friction":0.05,"classType":"Image"},{"width":80,"height":15,"x":787.4530193168805,"y":357.5,"sx":0,"sy":0,"topSpeed":10,"src":"Images/grass.png","alt":"add text","type":"grass_block","friction":0.05,"classType":"Image"},{"width":80,"height":15,"x":867.4530193168805,"y":356.5,"sx":0,"sy":0,"topSpeed":10,"src":"Images/grass.png","alt":"add text","type":"grass_block","friction":0.05,"classType":"Image"},{"width":80,"height":15,"x":943.4530193168805,"y":356.5,"sx":0,"sy":0,"topSpeed":10,"src":"Images/grass.png","alt":"add text","type":"grass_block","friction":0.05,"classType":"Image"},{"width":80,"height":15,"x":1012.4530193168805,"y":356.5,"sx":0,"sy":0,"topSpeed":10,"src":"Images/grass.png","alt":"add text","type":"grass_block","friction":0.05,"classType":"Image"},{"width":80,"height":15,"x":1025.4530193168805,"y":355.5,"sx":0,"sy":0,"topSpeed":10,"src":"Images/grass.png","alt":"add text","type":"grass_block","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1423.9124670005426,"y":351,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":80,"height":15,"x":1424.4124670005426,"y":339.5,"sx":0,"sy":0,"topSpeed":10,"src":"Images/grass.png","alt":"add text","type":"grass_block","friction":0.05,"classType":"Image"},{"width":80,"height":15,"x":1482.4124670005426,"y":340.5,"sx":0,"sy":0,"topSpeed":10,"src":"Images/grass.png","alt":"add text","type":"grass_block","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1732.015881529737,"y":357,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1861.015881529737,"y":357,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":1808.015881529737,"y":373,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":80,"height":15,"x":1730.8923259380422,"y":347.5,"sx":0,"sy":0,"topSpeed":10,"src":"Images/grass.png","alt":"add text","type":"grass_block","friction":0.05,"classType":"Image"},{"width":80,"height":15,"x":1808.8923259380422,"y":347.5,"sx":0,"sy":0,"topSpeed":10,"src":"Images/grass.png","alt":"add text","type":"grass_block","friction":0.05,"classType":"Image"},{"width":80,"height":15,"x":1883.8923259380422,"y":346.5,"sx":0,"sy":0,"topSpeed":10,"src":"Images/grass.png","alt":"add text","type":"grass_block","friction":0.05,"classType":"Image"},{"width":80,"height":15,"x":1920.8923259380422,"y":346.5,"sx":0,"sy":0,"topSpeed":10,"src":"Images/grass.png","alt":"add text","type":"grass_block","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":2213.629465014201,"y":357,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":2242.629465014201,"y":355,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":136,"height":30,"x":2231.629465014201,"y":368,"sx":0,"sy":0,"topSpeed":10,"src":"Images/platform.png","alt":"add text","type":"platform","friction":0.05,"classType":"Image"},{"width":80,"height":15,"x":2215.129465014201,"y":346.5,"sx":0,"sy":0,"topSpeed":10,"src":"Images/grass.png","alt":"add text","type":"grass_block","friction":0.05,"classType":"Image"},{"width":80,"height":15,"x":2301.129465014201,"y":344.5,"sx":0,"sy":0,"topSpeed":10,"src":"Images/grass.png","alt":"add text","type":"grass_block","friction":0.05,"classType":"Image"},{"width":80,"height":15,"x":2259.129465014201,"y":345.5,"sx":0,"sy":0,"topSpeed":10,"src":"Images/grass.png","alt":"add text","type":"grass_block","friction":0.05,"classType":"Image"},{"width":31,"height":80,"x":2305,"y":269,"sx":0,"sy":0,"topSpeed":10,"src":"Images/flag_bad.png","alt":"add text","type":"flag","friction":0.05,"classType":"Image"}]')
 
 //Player properties
 var player = new sjs.Image("Images/r_idle.png");
 player.type = "player";
-player.setSize(85,95);
-player.setGravity(3);
+player.setSize(152,76);
+player.setGravity(10);
 player.bottom();
 player.friction = .3;
+player.accel = .6;
 player.noBounds = true;
 sjs.scrollable(player,background);
+
+//Ball properties
+var ball = new sjs.Image("Images/spike.png");
+var can_collide =true
+ball.type = "ball";
+ball.setSize(50,50);
+ball.center();
+ball.friction = 0.1
+ball.accel = 0.3;
+ball.setGravity(.5);
+ball.bounce();
 
 //Player movement controls
 var r_images = ["Images/r_walk-0.png", "Images/r_walk-1.png", "Images/r_walk-2.png", "Images/r_walk-3.png", "Images/r_walk-4.png", "Images/r_walk-5.png", "Images/r_walk-6.png", "Images/r_walk-7.png"];
@@ -62,7 +74,7 @@ var canJump = true;
 sjs.keyDown(UP_KEY, function(){
     if(canJump == true){
 canJump = false;
-player.pushUp(55);
+player.pushUp(25);
 if(r_facing == true){
     player.setImage("Images/r_jump.png");
 r_track = 8;
@@ -73,6 +85,7 @@ l_track = 8;
 } //end if statement
 
 }); //end KeyDown Function
+
 
 window.addEventListener("keyup", function(e){
 
@@ -125,20 +138,9 @@ y.destroy();
 
 
 var flagOn = true;
-sjs.onHit("player","flag", function(x,y){
-    x.stop();
-if(flagOn == true){
-flagOn = false;
-setTimeout(function(){
-    y.setImage("Images/flag_none.png");
-},800 );
-setTimeout(function(){
-    y.setImage("Images/flag_win.png");
-},1600 );
-setTimeout(function(){
+sjs.onHit("ball","flag", function(x,y){
     window.location = "win.html";
-},2400 );
-} //end if statement
+ //end if statement
 });
 //onHit functions
 
@@ -180,6 +182,11 @@ x.destroy();
 window.location = "gameover.html";
 });
 
+sjs.onHit("player","grass_block", function(x,y){
+x.destroy();
+window.location = "gameover.html";
+});
+
 sjs.onHit("laser","enemy", function(x,y){
 x.destroy();
 y.destroy();
@@ -201,11 +208,72 @@ r_track = 0;
 l_track = 0;
 }
 });
+
 sjs.onHit("player",["right_screen","left_screen","top_screen"],function(x,y){
+
 sjs.stoppedBy(x,y);
 });
-} //end start
 
+sjs.onHit("ball","platform",function(x,y){
+sjs.stoppedBy(x,y);
+
+});
+
+sjs.onHit("ball","ball_hold",function(x,y){
+sjs.stoppedBy(x,y);
+});
+
+sjs.onHit("player","ball", function(x,y){
+
+if(x.isLeftOf(y) == true && x.isTopOf(y) == false && r_track != 0 && can_collide == true){
+    
+ball.pushRight(5);
+ball.pushUp(5);
+sjs.stoppedBy(x,y);
+can_collide = false;
+
+}
+
+if(x.isRightOf(y) == true && x.isTopOf(y) == false && l_track != 0 && can_collide == true){
+    
+    ball.pushLeft(4);
+    ball.pushUp(4);
+    sjs.stoppedBy(x,y);
+    can_collide = false;
+}
+
+if(x.isBottomOf(y) == true && can_collide == true){
+    
+    
+    ball.pushUp(5);
+    sjs.stoppedBy(x,y);
+    can_collide = false;
+}
+
+setTimeout( can_collide = true, 500)
+
+});
+
+sjs.onHit("ball","bottom_screen",function(x,y){
+sjs.stoppedBy(x,y);
+x.destroy();
+window.location = "gameover.html";
+
+});
+
+
+sjs.onHit("ball","grass_block",function(x,y){
+sjs.bounceOff(x,y);
+ball.pushRight(6);
+ball.pushUp(6);
+});
+
+
+
+
+
+
+} //end start
 </script>
 </head>
 <body onload="start()">

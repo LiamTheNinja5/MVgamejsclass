@@ -78,6 +78,8 @@ ball.bounce();
 //Player movement controls
 var r_images = ["Images/r_walk-0.png", "Images/r_walk-1.png", "Images/r_walk-2.png", "Images/r_walk-3.png", "Images/r_walk-4.png", "Images/r_walk-5.png", "Images/r_walk-6.png", "Images/r_walk-7.png"];
 var l_images = ["Images/l_walk-0.png", "Images/l_walk-1.png", "Images/l_walk-2.png", "Images/l_walk-3.png", "Images/l_walk-4.png", "Images/l_walk-5.png", "Images/l_walk-6.png", "Images/l_walk-7.png"];
+var r_jumps = ["Images/r_jump-0.png", "Images/r_jump-01.png", "Images/r_jump-02.png", "Images/r_jump-03.png", "Images/r_jump-04.png", "Images/r_jump-05.png", "Images/r_jump-06.png", "Images/r_jump-07.png", "Images/r_jump-08.png", "Images/r_jump-09.png", "Images/r_jump-10.png", "Images/r_jump-11.png", "Images/r_jump-12.png", "Images/r_jump-13.png"];
+var l_jumps = ["Images/l_jump-0.png", "Images/l_jump-01.png", "Images/l_jump-02.png", "Images/l_jump-03.png", "Images/l_jump-04.png", "Images/l_jump-05.png", "Images/l_jump-06.png", "Images/l_jump-07.png", "Images/l_jump-08.png", "Images/l_jump-09.png", "Images/l_jump-10.png", "Images/l_jump-11.png", "Images/l_jump-12.png", "Images/l_jump-13.png"];
 
 var r_facing = true;
 var r_track = 0;
@@ -92,7 +94,8 @@ if(r_track == 7){
 r_track = 0;
 }
 if(r_track >= 8){
-player.setImage("Images/r_jump.png");
+//player.setImage("Images/r_jump-0.png");
+player.setImage(r_jumps[r_track-8]);
 }
 }); //end Right key
 
@@ -105,7 +108,8 @@ if(l_track == 7){
 l_track = 0;
 }
 if(l_track >= 8){
-player.setImage("Images/l_jump.png");
+//player.setImage("Images/l_jump-0.png");
+player.setImage(l_jumps[l_track-8]);
 }
 }); //end Left key
 
@@ -116,10 +120,10 @@ sjs.keyDown(UP_KEY, function(){
 canJump = false;
 player.pushUp(25);
 if(r_facing == true){
-    player.setImage("Images/r_jump.png");
+    player.setImage("Images/r_jump-0.png");
 r_track = 8;
 } else {
-    player.setImage("Images/l_jump.png");
+    player.setImage("Images/l_jump-0.png");
 l_track = 8;
 }
 } //end if statement
@@ -234,6 +238,9 @@ sjs.stoppedBy(x,y);
 
 sjs.onHit("ball","grass_block",function(x,y){
 sjs.bounceOff(x,y);
+ball.pushRight(5);
+ball.pushUp(5);
+
 });
 
 
