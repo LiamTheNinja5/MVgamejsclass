@@ -29,7 +29,7 @@ startPlatform = new sjs.Button("Platform", function(){
 window.location = "JavaScript/Game Design/Platform/index.html";
 });
 startPlatform.center().offset(260, -60);
-//start dolphin
+//start dolphing
 startPlatform = new sjs.Button("Dolphin", function(){
 window.location = "JavaScript/Game Design/dolphin/index.html";
 });
@@ -45,11 +45,18 @@ window.location = "https://www.youtube.com/channel/UC-8wmedIzAO7DTOBnLdgwEw";
 });
 ytlink.offset(0, 30);
 
-//yt link
-ytlink = new sjs.Button("The Github for this project", function(){
+//git link
+gitlink = new sjs.Button("The Github for this project", function(){
 window.location = "https://github.com/LiamTheNinja5/MVjsclass";
 });
-ytlink.bottom()
+gitlink.bottom()
+
+//doc link
+doclink = new sjs.Button("The Documentation for the SJS library", function(){
+window.location = "Javascript/SJSdocs/global.html";
+});
+
+doclink.bottom().offset(0, -30);
 
 startFish.center().offset(250, -120);
 
